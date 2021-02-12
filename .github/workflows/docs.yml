@@ -31,10 +31,8 @@ jobs:
         conda list
         sed -i '/embedsignature/s/# //g' setup.py
         make
-    - name: Write docs
-      run: |
-        conda activate rmg_env
         cd documentation
         export COMMITMESSAGE="Automatic documentation rebuild"
         make travis_setup clean html publish
+        
       
