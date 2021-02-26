@@ -3173,6 +3173,7 @@ class KineticsFamily(Database):
                     ind1 = parent.item.atoms.index(bd.vertex1)
                     ind2 = parent.item.atoms.index(bd.vertex2)
                     logging.error(((ind1, ind2), bd.order, bd.reg_dim))
+                rs = template_rxn_map[parent.label]
                 for rxn in rs:
                     logging.error(str(rxn))
                     for react in rxn.reactants:
