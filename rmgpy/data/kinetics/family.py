@@ -3162,6 +3162,11 @@ class KineticsFamily(Database):
                                       'but extension generation has failed')
 
                 logging.error('split violation')
+                logging.error("proposed")
+                logging.error(ext[0].item.to_adjacency_list())
+                if ext[1]:
+                    logging.error("proposed complement")
+                    logging.error(ext[1].item.to_adjacency_list())
                 logging.error('parent')
                 logging.error(parent.item.to_adjacency_list())
                 for c, atm in enumerate(parent.item.atoms):
