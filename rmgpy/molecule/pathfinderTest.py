@@ -28,6 +28,7 @@
 ###############################################################################
 
 import unittest
+from external.wip import work_in_progress
 
 from rmgpy.molecule import Molecule
 from rmgpy.molecule.pathfinder import compute_atom_distance, find_adj_lone_pair_multiple_bond_delocalization_paths, \
@@ -311,7 +312,10 @@ class FindButadieneEndWithChargeTest(unittest.TestCase):
         expected_idx_path = [3, 2, 4, 6]
         self.assertEquals(idx_path, expected_idx_path)
 
+    @work_in_progress
     def test_c6h6o4(self):
+        # Can't read this InChI:
+        # the old OpenBabel could read it, but the resulting molecule had an invalid adjacency_list
         inchi = "InChI=1S/C6H6O4/c1-2-4-9-6(7)3-5-10-8/h2-3H,1,5H2"
         mol = Molecule().from_inchi(inchi)
         start = mol.atoms[0]
