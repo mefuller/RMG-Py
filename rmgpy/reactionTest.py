@@ -225,6 +225,16 @@ class TestSurfaceReaction(unittest.TestCase):
                                       comment="""Approximate rate""")
         )
 
+        # adding coverage dependent reaction
+        self.rxn_covdep = Reaction(
+            reactants=[s_h2, s_x, s_x],
+            products=[s_hx, s_hx],
+            kinetics=SurfaceArrhenius(A=(9.05e18, 'cm^5/(mol^2*s)'),
+                                      n=0.5,
+                                      Ea=(5.0, 'kJ/mol'),
+                                      T0=(1.0, 'K'),
+                                      cov={'*': {'E': (0.0, 'J/mol'), 'm': -1.0, 'a': 0.0}}))
+
     def test_is_surface_reaction_species(self):
         """Test is_surface_reaction for reaction based on Species """
         self.assertTrue(self.rxn1s.is_surface_reaction())
@@ -299,7 +309,9 @@ class TestSurfaceReaction(unittest.TestCase):
     @wipd
     def test_cantera_export(self):
         
-        self.assertEqual(1,1)
+        self.rxn_covdep.to_cantera(self)
+
+        self.assertEqual(0,1)
         #stuff
 
 class TestReaction(unittest.TestCase):
