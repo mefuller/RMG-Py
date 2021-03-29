@@ -84,13 +84,10 @@ cdef class StickingCoefficient(KineticsModel):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", coverage_dependence={"
+            string += f", coverage_dependence={{"
             for smiles, parameters in self.coverage_dependence.items():
-                string += "'{}': ".format(smiles)
-                string += "{"
-                string += "'E':({0!r}), 'm':{1!r}, 'a':{2!r}".format(parameters['E'], parameters['m'], parameters['a'])
-                string += "}"
-            string += "}"
+                string += f"'{smiles}': {{'E':({parameters['E']}), 'm':{parameters['m']}, 'a':{parameters['a']}}}"
+            string += f"}}"
         if self.Pmin is not None: string += ', Pmin={0!r}'.format(self.Pmin)
         if self.Pmax is not None: string += ', Pmax={0!r}'.format(self.Pmax)
         if self.comment != '': string += ', comment="""{0}"""'.format(self.comment)
@@ -294,13 +291,10 @@ cdef class StickingCoefficientBEP(KineticsModel):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", coverage_dependence={"
+            string += f", coverage_dependence={{"
             for smiles, parameters in self.coverage_dependence.items():
-                string += "'{}': ".format(smiles)
-                string += "{"
-                string += "'E':({0!r}), 'm':{1!r}, 'a':{2!r}".format(parameters['E'], parameters['m'], parameters['a'])
-                string += "}"
-            string += "}"
+                string += f"'{smiles}': {{'E':({parameters['E']}), 'm':{parameters['m']}, 'a':{parameters['a']}}}"
+            string += f"}}"
         if self.Pmin is not None: string += ', Pmin={0!r}'.format(self.Pmin)
         if self.Pmax is not None: string += ', Pmax={0!r}'.format(self.Pmax)
         if self.comment != '': string += ', comment="""{0}"""'.format(self.comment)
@@ -502,13 +496,10 @@ cdef class SurfaceArrhenius(Arrhenius):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", coverage_dependence={"
+            string += f", coverage_dependence={{"
             for smiles, parameters in self.coverage_dependence.items():
-                string += "'{}': ".format(smiles)
-                string += "{"
-                string += "'E':({0!r}), 'm':{1!r}, 'a':{2!r}".format(parameters['E'], parameters['m'], parameters['a'])
-                string += "}"
-            string += "}"
+                string += f"'{smiles}': {{'E':({parameters['E']}), 'm':{parameters['m']}, 'a':{parameters['a']}}}"
+            string += f"}}"
         if self.Pmin is not None: string += ', Pmin={0!r}'.format(self.Pmin)
         if self.Pmax is not None: string += ', Pmax={0!r}'.format(self.Pmax)
         if self.uncertainty is not None: string += ', uncertainty={0!r}'.format(self.uncertainty)
@@ -613,13 +604,10 @@ cdef class SurfaceArrheniusBEP(ArrheniusEP):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", coverage_dependence={"
+            string += f", coverage_dependence={{"
             for smiles, parameters in self.coverage_dependence.items():
-                string += "'{}': ".format(smiles)
-                string += "{"
-                string += "'E':({0!r}), 'm':{1!r}, 'a':{2!r}".format(parameters['E'], parameters['m'], parameters['a'])
-                string += "}"
-            string += "}"
+                string += f"'{smiles}': {{'E':({parameters['E']}), 'm':{parameters['m']}, 'a':{parameters['a']}}}"
+            string += f"}}"
         if self.Pmin is not None: string += ', Pmin={0!r}'.format(self.Pmin)
         if self.Pmax is not None: string += ', Pmax={0!r}'.format(self.Pmax)
         if self.uncertainty is not None: string += ', uncertainty={0!r}'.format(self.uncertainty)
