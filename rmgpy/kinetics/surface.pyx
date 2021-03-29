@@ -84,7 +84,7 @@ cdef class StickingCoefficient(KineticsModel):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", cov={"
+            string += ", coverage_dependence={"
             for smiles, parameters in self.coverage_dependence.items():
                 string += "'{}': ".format(smiles)
                 string += "{"
@@ -294,7 +294,7 @@ cdef class StickingCoefficientBEP(KineticsModel):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", cov={"
+            string += ", coverage_dependence={"
             for smiles, parameters in self.coverage_dependence.items():
                 string += "'{}': ".format(smiles)
                 string += "{"
@@ -502,7 +502,7 @@ cdef class SurfaceArrhenius(Arrhenius):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", cov={"
+            string += ", coverage_dependence={"
             for smiles, parameters in self.coverage_dependence.items():
                 string += "'{}': ".format(smiles)
                 string += "{"
@@ -613,7 +613,7 @@ cdef class SurfaceArrheniusBEP(ArrheniusEP):
         if self.Tmin is not None: string += ', Tmin={0!r}'.format(self.Tmin)
         if self.Tmax is not None: string += ', Tmax={0!r}'.format(self.Tmax)
         if self.coverage_dependence is not None:
-            string += ", cov={"
+            string += ", coverage_dependence={"
             for smiles, parameters in self.coverage_dependence.items():
                 string += "'{}': ".format(smiles)
                 string += "{"
